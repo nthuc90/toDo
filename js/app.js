@@ -2,14 +2,13 @@ const reload = document.querySelector(".reload");
 const date = document.getElementById("date");
 const list = document.getElementById("list");
 const input = document.getElementById("input");
-const text = document.querySelector(".text");
+
 
 const check = "bi-check-circle";
 const uncheck = "bi-circle ";
 const line_through = "linethrough";
 
-// let LIST = []
-// ,id = 0;
+let LIST,id;
 let data = localStorage.getItem("TODO");
 
 if (data) {
@@ -77,7 +76,7 @@ document.addEventListener("keyup", function(even){
 function hctoDo(element){
     element.classList.toggle(check);
     element.classList.toggle(uncheck);
-    element.parentNode.text.classList.toggle(line_through);
+    element.parentNode.querySelector(".text").classList.toggle(line_through);
     LIST[element.id].done = LIST[element.id].done ? false :true;
 
 }
